@@ -1,6 +1,6 @@
 package org.guneriu.richdocumentcatalog.model.book;
 
-import java.util.List;
+import java.util.UUID;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.solr.core.mapping.Indexed;
@@ -9,14 +9,20 @@ import org.springframework.data.solr.core.mapping.SolrDocument;
 @SolrDocument(solrCoreName = "rich-document-catalog")
 public class Book {
 	private @Id @Indexed String isbn;
-	private @Indexed String name;
-	private @Indexed("author") List<String> authors;
+	private @Indexed String title;
+	private @Indexed String author;
 	private @Indexed String category;
+	private @Indexed String content;
+	private @Indexed("content_type") String contentType;
+	
+	public Book() {
+		this.isbn = UUID.randomUUID().toString();
+	}
 
-	public Book(String isbn, String name, List<String> authors, String category) {
-		this.isbn = isbn;
-		this.name = name;
-		this.authors = authors;
+	public Book(String title, String author, String category) {
+		this();
+		this.title = title;
+		this.author = author;
 		this.category = category;
 	}
 
@@ -28,20 +34,20 @@ public class Book {
 		this.isbn = isbn;
 	}
 
-	public String getName() {
-		return name;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	
+	public void setContentType(String contentType) {
+		this.contentType = contentType;
 	}
 
-	public List<String> getAuthors() {
-		return authors;
-	}
-
-	public void setAuthors(List<String> authors) {
-		this.authors = authors;
+	public void setAuthor(String author) {
+		this.author = author;
 	}
 
 	public String getCategory() {
@@ -52,10 +58,17 @@ public class Book {
 		this.category = category;
 	}
 
-	@Override
-	public String toString() {
-		return "Book [isbn=" + isbn + ", name=" + name + ", authors=" + authors
-				+ ", category=" + category + "]";
+	public String getContent() {
+		return content;
 	}
 
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getContentType() {
+		return contentType;
+	}
+
+	
 }

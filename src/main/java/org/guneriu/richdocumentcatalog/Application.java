@@ -8,13 +8,11 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
-import org.springframework.data.rest.webmvc.config.RepositoryRestMvcConfiguration;
 
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan
-@Import({RepositoryRestMvcConfiguration.class, SearchContext.class })
-//@EnableSolrRepositories(basePackages = { "org.guneriu.richdocumentcatalog.model.book" }, multicoreSupport = true)
+@Import({SearchContext.class })
 public class Application {
 	
 	@Autowired
@@ -24,16 +22,4 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-//	@Override
-//	public void run(String... args) throws Exception {
-//		System.out.println("running book service");
-//		Book book = new Book(UUID.randomUUID().toString(), "Java Complete Referance", Arrays.asList("Herbert Schildt"), "Java");
-//		bookService.save(book);
-//		List<Book> findByName = bookService.findByName("Java");
-//		for (Book name : findByName) {
-//			System.out.println(name);
-//		}
-//	}
-	
-	
 }
