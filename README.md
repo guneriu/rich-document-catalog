@@ -1,7 +1,7 @@
 Rich Document Catalog
 =========================
 
-This example shows basic usage concepts of [Spring Data Solr](http://projects.spring.io/spring-data-solr).
+This example shows basic usage concepts of [Spring Data Solr](http://projects.spring.io/spring-data-solr) and [Apache Tika](http://tika.apache.org/)
 
 In order to run this example a 4+ [Solr Server](http://lucene.apache.org/solr/downloads.html) and [Maven](http://maven.apache.org/download.cgi) are required.
 
